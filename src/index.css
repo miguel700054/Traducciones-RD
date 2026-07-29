@@ -1,0 +1,268 @@
+:root {
+  /* Relaxed Color Palette */
+  --bg-primary: #F9F7F2;
+  --bg-secondary: #F0EDE4;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FAF8F5;
+  --text-primary: #22302A;
+  --text-secondary: #56665E;
+  --text-muted: #8A9990;
+  
+  --brand-sage: #385E50;
+  --brand-sage-light: #EAF0EC;
+  --brand-sage-dark: #233D34;
+  --brand-sand: #E6DCC9;
+  --brand-sand-light: #FAF6F0;
+  --brand-terracotta: #D4775E;
+  --brand-terracotta-light: #FBF0ED;
+  --brand-teal: #1E4343;
+  --brand-teal-light: #E6F2F2;
+
+  --accent-gold: #C69C5A;
+  
+  --border-color: rgba(56, 94, 80, 0.12);
+  --border-color-hover: rgba(56, 94, 80, 0.25);
+  
+  --shadow-soft: 0 8px 30px rgba(34, 48, 42, 0.04);
+  --shadow-medium: 0 14px 40px rgba(34, 48, 42, 0.08);
+  --shadow-hover: 0 20px 48px rgba(34, 48, 42, 0.12);
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s ease;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #121A17;
+  --bg-secondary: #192420;
+  --bg-card: #1D2A25;
+  --bg-card-hover: #24352F;
+  --text-primary: #E9F0EC;
+  --text-secondary: #A3B5AB;
+  --text-muted: #6B7C73;
+  
+  --brand-sage: #528271;
+  --brand-sage-light: #1F302A;
+  --brand-sand: #3D3528;
+  --brand-sand-light: #211D16;
+  --brand-terracotta: #E28870;
+  --brand-terracotta-light: #36221B;
+  
+  --border-color: rgba(233, 240, 236, 0.1);
+  --border-color-hover: rgba(233, 240, 236, 0.22);
+  
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.3);
+  --shadow-medium: 0 14px 40px rgba(0, 0, 0, 0.45);
+  --shadow-hover: 0 20px 48px rgba(0, 0, 0, 0.6);
+}
+
+/* Global Reset & Typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, textarea, select {
+  font-family: var(--font-sans);
+}
+
+/* Glassmorphism Header */
+.glass-nav {
+  background: rgba(249, 247, 242, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition-smooth);
+}
+
+[data-theme="dark"] .glass-nav {
+  background: rgba(18, 26, 23, 0.85);
+}
+
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: var(--border-color-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color-hover);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-sage);
+}
+
+/* Soft Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Badge & Pills */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.badge-sage {
+  background: var(--brand-sage-light);
+  color: var(--brand-sage);
+}
+
+.badge-sand {
+  background: var(--brand-sand-light);
+  color: var(--brand-teal);
+  border: 1px solid rgba(198, 156, 90, 0.2);
+}
+
+.badge-terracotta {
+  background: var(--brand-terracotta-light);
+  color: var(--brand-terracotta);
+}
+
+/* Custom Buttons */
+.btn-primary {
+  background-color: var(--brand-sage);
+  color: #FFFFFF;
+  padding: 10px 22px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.92rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 14px rgba(56, 94, 80, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-sage-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(56, 94, 80, 0.35);
+}
+
+.btn-secondary {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.92rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color-hover);
+  transform: translateY(-1px);
+}
+
+/* Layout Container */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Ambient Audio Waves Effect */
+.sound-wave-bar {
+  width: 3px;
+  height: 14px;
+  background-color: var(--brand-sage);
+  border-radius: 2px;
+  animation: soundWave 1.2s infinite ease-in-out alternate;
+}
+.sound-wave-bar:nth-child(2) { animation-delay: 0.2s; }
+.sound-wave-bar:nth-child(3) { animation-delay: 0.4s; }
+.sound-wave-bar:nth-child(4) { animation-delay: 0.1s; }
+
+@keyframes soundWave {
+  0% { height: 4px; }
+  100% { height: 18px; }
+}
