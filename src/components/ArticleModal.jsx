@@ -4,11 +4,6 @@ import {
   Bookmark, 
   Heart, 
   Share2, 
-  Volume2, 
-  Play, 
-  Pause, 
-  CloudRain,
-  Waves,
   ArrowLeft,
   PhoneCall
 } from 'lucide-react';
@@ -25,9 +20,7 @@ export default function ArticleModal({
 
   const [fontSize, setFontSize] = useState('text-base');
   const [readerTheme, setReaderTheme] = useState('sand');
-  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
-  const [ambientSound, setAmbientSound] = useState('none');
-  const [likesCount, setLikesCount] = useState(post.likes || 12);
+  const [likesCount, setLikesCount] = useState(post.likes || 42);
   const [hasLiked, setHasLiked] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -90,9 +83,9 @@ export default function ArticleModal({
             </div>
 
             <div className="flex items-center gap-1 bg-black/5 dark:bg-white/10 p-1 rounded-full">
-              <button onClick={() => setReaderTheme('sand')} className={`w-6 h-6 rounded-full bg-[#FAF6F0] border border-[#D9CEBF] ${readerTheme === 'sand' ? 'scale-125' : ''}`} />
-              <button onClick={() => setReaderTheme('light')} className={`w-6 h-6 rounded-full bg-[#FFFFFF] border border-[#CBD5E1] ${readerTheme === 'light' ? 'scale-125' : ''}`} />
-              <button onClick={() => setReaderTheme('dark')} className={`w-6 h-6 rounded-full bg-[#141D19] border border-[#334840] ${readerTheme === 'dark' ? 'scale-125' : ''}`} />
+              <button onClick={() => setReaderTheme('sand')} className={`w-6 h-6 rounded-full bg-[#FAF6F0] border border-[#D9CEBF] ${readerTheme === 'sand' ? 'scale-125' : ''}`} title="Tema Arena" />
+              <button onClick={() => setReaderTheme('light')} className={`w-6 h-6 rounded-full bg-[#FFFFFF] border border-[#CBD5E1] ${readerTheme === 'light' ? 'scale-125' : ''}`} title="Tema Claro" />
+              <button onClick={() => setReaderTheme('dark')} className={`w-6 h-6 rounded-full bg-[#141D19] border border-[#334840] ${readerTheme === 'dark' ? 'scale-125' : ''}`} title="Tema Noche" />
             </div>
 
             <button onClick={() => toggleSavePost(post.id)} className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10">
@@ -115,27 +108,6 @@ export default function ArticleModal({
             <div className="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-inherit text-xs opacity-75">
               <span>Por <strong>{post.author?.name || AGENCY_INFO.founder}</strong></span>
               <span>📅 {post.date} · ⏱️ {post.readTime}</span>
-            </div>
-          </div>
-
-          <div className="max-w-3xl mx-auto p-4 rounded-2xl bg-black/5 dark:bg-white/5 border border-inherit flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <button onClick={() => setIsPlayingAudio(!isPlayingAudio)} className="w-10 h-10 rounded-full bg-[var(--brand-sage)] text-white flex items-center justify-center">
-                {isPlayingAudio ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 ml-0.5" />}
-              </button>
-              <div>
-                <p className="text-xs font-bold">Escuchar en voz alta</p>
-                <p className="text-[11px] opacity-75">{isPlayingAudio ? 'Reproduciendo audio...' : `Duración: ${post.audioDuration || '5 min'}`}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 text-xs">
-              <button onClick={() => setAmbientSound(ambientSound === 'rain' ? 'none' : 'rain')} className={`p-2 rounded-lg flex items-center gap-1 ${ambientSound === 'rain' ? 'bg-[var(--brand-sage)] text-white' : 'bg-black/5 dark:bg-white/10'}`}>
-                <CloudRain className="w-3.5 h-3.5" /> Lluvia
-              </button>
-              <button onClick={() => setAmbientSound(ambientSound === 'ocean' ? 'none' : 'ocean')} className={`p-2 rounded-lg flex items-center gap-1 ${ambientSound === 'ocean' ? 'bg-[var(--brand-sage)] text-white' : 'bg-black/5 dark:bg-white/10'}`}>
-                <Waves className="w-3.5 h-3.5" /> Océano
-              </button>
             </div>
           </div>
 
