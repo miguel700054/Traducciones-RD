@@ -15,7 +15,7 @@ export default function ServicesSection() {
     {
       id: 'jurada',
       title: 'Traducción Jurada Certificada',
-      description: 'Documentos legales oficiales firmados por la Dra. Gilda Amelia Julián con validez jurada ante instituciones y consulados.',
+      description: 'Documentos legales oficiales firmados por la Lcda. Gilda Amelia Julián con validez jurada ante instituciones y consulados.',
       icon: Scale,
       badge: 'Legal & Notarial'
     },
@@ -53,7 +53,7 @@ export default function ServicesSection() {
             Especialidades & Cobertura
           </h2>
           <p className="text-[var(--text-secondary)] text-sm sm:text-base">
-            Servicios liderados por {AGENCY_INFO.founder} ({AGENCY_INFO.experience}).
+            Servicios liderados por Lcda. {AGENCY_INFO.founder} ({AGENCY_INFO.experience}).
           </p>
         </div>
 
@@ -95,7 +95,7 @@ export default function ServicesSection() {
               className="font-serif text-xl sm:text-2xl font-bold"
               style={{ color: '#F5EFE6' }}
             >
-              {AGENCY_INFO.name} · {AGENCY_INFO.founder}
+              {AGENCY_INFO.name} · Lcda. {AGENCY_INFO.founder}
             </h4>
             <p className="text-xs text-[#E1EDE7] max-w-xl leading-relaxed">
               {AGENCY_INFO.address}

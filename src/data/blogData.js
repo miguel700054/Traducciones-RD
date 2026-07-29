@@ -7,8 +7,8 @@ export const AGENCY_INFO = {
   phone: '(829) 345-6136',
   phoneClean: '8293456136',
   address: 'Avenida Rómulo Betancourt #1308, 2do piso, Suite 211, 1308 Corporate Center, Santo Domingo, Dominican Republic 10112',
-  website: 'julianbrenes.com',
-  websiteUrl: 'https://julianbrenes.com',
+  website: 'traducciones-rd.com',
+  websiteUrl: 'https://traducciones-rd.com',
   instagram: 'traducciones_rd',
   instagramUrl: 'https://instagram.com/traducciones_rd',
   languages: 'Traducciones en todos los idiomas'

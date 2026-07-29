@@ -21,7 +21,7 @@ export default function Hero() {
           
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--brand-sage-light)] text-[var(--brand-sage)] text-xs font-semibold tracking-wide">
             <Award className="w-3.5 h-3.5" />
-            <span>{AGENCY_INFO.founder} · {AGENCY_INFO.experience}</span>
+            <span>Lcda. {AGENCY_INFO.founder} · {AGENCY_INFO.experience}</span>
           </div>
 
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[var(--text-primary)] leading-tight">
@@ -80,7 +80,7 @@ export default function Hero() {
               <div>
                 <span className="badge badge-sand mb-2">Santo Domingo, República Dominicana</span>
                 <p className="font-serif text-lg sm:text-xl font-medium">
-                  {AGENCY_INFO.founder} · {AGENCY_INFO.founderTitle}
+                  Lcda. {AGENCY_INFO.founder} · {AGENCY_INFO.founderTitle}
                 </p>
                 <p className="text-xs text-white/80 flex items-center gap-1 mt-1">
                   <MapPin className="w-3.5 h-3.5" /> {AGENCY_INFO.address}

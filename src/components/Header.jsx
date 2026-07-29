@@ -44,7 +44,7 @@ export default function Header({
                 Traducciones <span className="text-[var(--brand-sage)]">RD</span>
               </span>
               <span className="text-[10px] tracking-wider uppercase font-semibold text-[var(--text-muted)] block -mt-1">
-                Blog Oficial · Gilda Amelia Julián
+                Blog Oficial · Lcda. Gilda Amelia Julián
               </span>
             </div>
           </a>

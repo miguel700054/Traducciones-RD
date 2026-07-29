@@ -29,7 +29,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-[var(--text-secondary)] leading-relaxed">
-              <strong>{AGENCY_INFO.founder}</strong><br />
+              <strong>Lcda. {AGENCY_INFO.founder}</strong><br />
               {AGENCY_INFO.founderTitle}<br />
               ({AGENCY_INFO.experience})
             </p>
@@ -89,7 +89,7 @@ export default function Footer() {
 
         {/* Bottom Copyright Bar */}
         <div className="pt-6 border-t border-[var(--border-color)] flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--text-muted)] gap-3 text-center sm:text-left">
-          <p>© {new Date().getFullYear()} Traducciones RD · {AGENCY_INFO.founder}. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Traducciones RD · Lcda. {AGENCY_INFO.founder}. Todos los derechos reservados.</p>
           <p className="flex items-center justify-center gap-1">
             Blog Oficial diseñado con estilo <Heart className="w-3.5 h-3.5 text-[var(--brand-terracotta)] fill-current" /> relajado.
           </p>
