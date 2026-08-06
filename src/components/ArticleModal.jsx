@@ -4,8 +4,10 @@ import {
   Bookmark, 
   Heart, 
   Share2, 
+  Check, 
   ArrowLeft,
-  PhoneCall
+  PhoneCall,
+  MessageCircle
 } from 'lucide-react';
 import { AGENCY_INFO } from '../data/blogData';
 
@@ -23,6 +25,7 @@ export default function ArticleModal({
   const [likesCount, setLikesCount] = useState(post.likes || 42);
   const [hasLiked, setHasLiked] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [copied, setCopied] = useState(false);
 
   const handleScroll = (e) => {
     const target = e.target;
@@ -44,13 +47,59 @@ export default function ArticleModal({
     }
   };
 
-  const handleShare = () => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(window.location.href);
-      showToast('🔗 Enlace copiado al portapapeles');
-    } else {
-      showToast('Compartido con éxito');
+  const getShareUrl = () => {
+    const origin = window.location.origin;
+    const pathname = window.location.pathname;
+    return `${origin}${pathname}?post=${post.id}`;
+  };
+
+  const handleShare = async () => {
+    const shareUrl = getShareUrl();
+    const shareData = {
+      title: post.title,
+      text: `${post.title} - ${AGENCY_INFO.name}`,
+      url: shareUrl
+    };
+
+    // Try Web Share API first (Native Mobile / Mac Share Sheet)
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        showToast('✨ Artículo compartido con éxito');
+        return;
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          console.log('Fallback to clipboard copy', err);
+        } else {
+          return; // User cancelled native share sheet
+        }
+      }
     }
+
+    // Fallback: Copy to clipboard
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(shareUrl);
+      } else {
+        const input = document.createElement('input');
+        input.value = shareUrl;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+      }
+      setCopied(true);
+      showToast('🔗 ¡Enlace del artículo copiado al portapapeles!');
+      setTimeout(() => setCopied(false), 2500);
+    } catch (err) {
+      showToast('📋 Copiar enlace: ' + shareUrl);
+    }
+  };
+
+  const handleWhatsAppShare = () => {
+    const shareUrl = getShareUrl();
+    const text = encodeURIComponent(`*${post.title}*\n${post.subtitle}\n\nLee el artículo aquí: ${shareUrl}`);
+    window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
   };
 
   const themeStyles = {
@@ -119,16 +168,39 @@ export default function ArticleModal({
 
           <div className={`max-w-3xl mx-auto space-y-6 leading-relaxed font-sans ${fontSize}`} dangerouslySetInnerHTML={{ __html: post.content }} />
 
+          {/* Action Row */}
           <div className="max-w-3xl mx-auto pt-8 border-t border-inherit flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <button onClick={handleLike} className={`flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-sm ${hasLiked ? 'bg-[var(--brand-terracotta)] text-white' : 'bg-black/5 dark:bg-white/10'}`}>
+            <div className="flex flex-wrap items-center gap-3">
+              <button 
+                onClick={handleLike} 
+                className={`flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-sm transition-transform active:scale-95 ${hasLiked ? 'bg-[var(--brand-terracotta)] text-white' : 'bg-black/5 dark:bg-white/10 hover:bg-black/10'}`}
+              >
                 <Heart className={`w-4 h-4 ${hasLiked ? 'fill-current' : ''}`} />
                 <span>{likesCount} Me Gusta</span>
               </button>
 
-              <button onClick={handleShare} className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 dark:bg-white/10 text-sm font-semibold">
-                <Share2 className="w-4 h-4" />
-                <span>Compartir</span>
+              {/* Main Share Button */}
+              <button 
+                onClick={handleShare} 
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                  copied 
+                    ? 'bg-emerald-600 text-white' 
+                    : 'bg-black/5 dark:bg-white/10 hover:bg-black/10'
+                }`}
+                title="Compartir este artículo"
+              >
+                {copied ? <Check className="w-4 h-4" /> : <Share2 className="w-4 h-4" />}
+                <span>{copied ? '¡Copiado!' : 'Compartir'}</span>
+              </button>
+
+              {/* Direct WhatsApp Share Button */}
+              <button 
+                onClick={handleWhatsAppShare} 
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 text-xs font-bold hover:bg-emerald-500/25 transition-colors"
+                title="Compartir en WhatsApp"
+              >
+                <MessageCircle className="w-3.5 h-3.5" />
+                <span>Enviar por WhatsApp</span>
               </button>
             </div>
 

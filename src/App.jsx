@@ -38,6 +38,22 @@ export default function App() {
     }, 3500);
   };
 
+  // Deep-link check on URL params for shared articles
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const postId = params.get('post');
+      if (postId) {
+        const found = BLOG_POSTS.find(p => p.id === postId);
+        if (found) {
+          setSelectedPost(found);
+        }
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }, []);
+
   // Sync Theme to HTML data-theme attribute
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -113,7 +129,14 @@ export default function App() {
       {selectedPost && (
         <ArticleModal 
           post={selectedPost}
-          onClose={() => setSelectedPost(null)}
+          onClose={() => {
+            setSelectedPost(null);
+            // Clean URL query param when closing modal
+            if (window.history.pushState) {
+              const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+              window.history.pushState({ path: cleanUrl }, '', cleanUrl);
+            }
+          }}
           isSaved={savedPosts.includes(selectedPost.id)}
           toggleSavePost={toggleSavePost}
           showToast={showToast}
