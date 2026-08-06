@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Globe, PhoneCall, MapPin, Scale, ShieldCheck } from 'lucide-react';
+import { Award, Globe, PhoneCall, MapPin, Scale, ShieldCheck, Zap, Clock } from 'lucide-react';
 import { AGENCY_INFO } from '../data/blogData';
 
 const InstagramIcon = (props) => (
@@ -29,18 +29,21 @@ export default function Hero() {
           </h1>
 
           <p className="text-base sm:text-lg text-[var(--text-secondary)] font-normal leading-relaxed max-w-xl mx-auto">
-            Traducciones en <strong>todos los idiomas</strong>. Artículos sobre traducción jurada certificada, documentos oficiales y comunicación global.
+            Traducciones en <strong>todos los idiomas</strong>. Entregamos en <strong>menos de 24 horas</strong> y realizamos <strong>traducciones urgentes</strong>.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-2 text-xs font-medium text-[var(--text-secondary)] pt-1">
+            <span className="px-3.5 py-1 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center gap-1.5 shadow-sm">
+              <Zap className="w-3.5 h-3.5 text-amber-500" /> Entrega en menos de 24h
+            </span>
+            <span className="px-3.5 py-1 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center gap-1.5 shadow-sm">
+              <Clock className="w-3.5 h-3.5 text-[var(--brand-terracotta)]" /> Traducciones Urgentes
+            </span>
             <span className="px-3.5 py-1 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center gap-1.5 shadow-sm">
               <Globe className="w-3.5 h-3.5 text-[var(--brand-sage)]" /> Todos los Idiomas
             </span>
             <span className="px-3.5 py-1 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center gap-1.5 shadow-sm">
               <Scale className="w-3.5 h-3.5 text-[var(--brand-sage)]" /> Traducción Legal Certificada
-            </span>
-            <span className="px-3.5 py-1 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center gap-1.5 shadow-sm">
-              <ShieldCheck className="w-3.5 h-3.5 text-[var(--brand-sage)]" /> Documentos Oficiales
             </span>
           </div>
 

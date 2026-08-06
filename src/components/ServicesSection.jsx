@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scale, ShieldCheck, Globe2, FileText, PhoneCall } from 'lucide-react';
+import { Scale, ShieldCheck, Globe2, FileText, PhoneCall, Zap, Clock } from 'lucide-react';
 import { AGENCY_INFO } from '../data/blogData';
 
 const InstagramIcon = (props) => (
@@ -20,11 +20,11 @@ export default function ServicesSection() {
       badge: 'Legal & Notarial'
     },
     {
-      id: 'revision',
-      title: 'Revisión & Certificación',
-      description: 'Verificación minuciosamente fiel y revisión técnica de textos legales por traductores certificados.',
-      icon: ShieldCheck,
-      badge: 'Control de Calidad'
+      id: 'urgentes',
+      title: 'Entrega en < 24h & Urgencias',
+      description: 'Servicio prioritario exprés para entregas en menos de 24 horas y traducciones juradas urgentes cuando el tiempo es crítico.',
+      icon: Zap,
+      badge: 'Servicio Exprés'
     },
     {
       id: 'idiomas',
@@ -48,7 +48,10 @@ export default function ServicesSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-          <span className="badge badge-sage">Agencia de Traductores Certificados</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-300 text-xs font-bold">
+            <Zap className="w-4 h-4 text-amber-500" />
+            <span>Entrega en menos de 24 horas & Traducciones Urgentes</span>
+          </div>
           <h2 className="font-serif text-3xl sm:text-4xl text-[var(--text-primary)]">
             Especialidades & Cobertura
           </h2>
