@@ -37,7 +37,7 @@ export const BLOG_POSTS = [
     readTime: '4 min de lectura',
     featuredImage: '/blog-transcreation.png',
     tags: ['Documentos Personales', 'Traducción Jurada', 'República Dominicana', 'Visados'],
-    likes: 28,
+    likes: 127,
     excerpt: 'Realizar trámites internacionales requiere presentar documentación personal en el idioma del país receptor. Conoce el procedimiento legalizado para validar actas, títulos y récords.',
     content: `
       <p className="text-lg leading-relaxed font-serif text-[var(--text-primary)]">
