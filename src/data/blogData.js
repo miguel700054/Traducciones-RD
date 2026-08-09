@@ -72,7 +72,7 @@ export const BLOG_POSTS = [
           Garantizar la exactitud en los nombres, fechas y números de folio evita retrasos costosos o el rechazo de expedientes. Sin embargo, sabemos que los plazos consulares suelen ser ajustados y no siempre se dispone de semanas para esperar por un documento.
         </p>
         <p className="text-sm text-[var(--text-primary)] leading-relaxed">
-          En <strong>Traducciones RD</strong> entendemos la importancia de tu tiempo. Contamos con un servicio de traducción exprés diseñado para entregarte tus documentos personales traducidos y legalizados en tiempo récord, con la máxima precisión y validez jurídica garantizada.
+          En <strong>Traducciones RD</strong> entendemos la importancia de tu tiempo. Contamos con un servicio de traducción exprés diseñado para entregarte tus documentos personales traducidos en tiempo récord, con la máxima precisión y validez jurídica garantizada.
         </p>
         <p className="text-sm font-bold text-[var(--brand-sage)] pt-2">
           Contáctanos hoy mismo por WhatsApp al (829) 345-6136 y cotiza de inmediato. ¡No dejes que el tiempo detenga tus planes internacionales!
@@ -174,7 +174,7 @@ export const BLOG_POSTS = [
           En TRADUCCIONES RD comprendemos la urgencia y la responsabilidad que conlleva cada documento legal. Nuestro equipo de profesionales garantiza traducciones precisas, confidenciales y ajustadas a los estándares exigidos por embajadas, ministerios e instituciones judiciales dentro y fuera del país.
         </p>
         <p className="text-xs sm:text-sm text-[#E1EDE7] leading-relaxed">
-          Si necesitas traducir o legalizar tus documentos para trámites académicos, migratorios o empresariales, TRADUCCIONES RD te ofrece un servicio rápido, confiable y adaptado a tus tiempos.
+          Si necesitas traducir tus documentos para trámites académicos, migratorios o empresariales, TRADUCCIONES RD te ofrece un servicio rápido, confiable y adaptado a tus tiempos.
         </p>
         <p className="text-sm font-bold text-[#F5EFE6] pt-2">
           TELÉFONO DE CONTACTO: (829) 345-6136
