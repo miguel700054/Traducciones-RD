@@ -7,7 +7,7 @@ import {
   Menu, 
   X,
   Compass,
-  PhoneCall
+  MessageCircle
 } from 'lucide-react';
 import { AGENCY_INFO } from '../data/blogData';
 
@@ -28,6 +28,7 @@ export default function Header({
   setSearchQuery
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const whatsappQuoteUrl = `https://wa.me/1${AGENCY_INFO.phoneClean}?text=${encodeURIComponent('Hola, Quisiera cotizar una traducción con Traducciones RD')}`;
 
   return (
     <header className="sticky top-0 z-40 glass-nav">
@@ -109,13 +110,13 @@ export default function Header({
 
             {/* Contact Direct Link */}
             <a
-              href={`https://wa.me/1${AGENCY_INFO.phoneClean}`}
+              href={whatsappQuoteUrl}
               target="_blank"
               rel="noreferrer"
-              className="btn-primary"
+              className="btn-primary bg-gradient-to-r from-emerald-600 to-teal-600 border-none font-bold text-xs shadow-md hover:scale-105 transition-transform"
             >
-              <PhoneCall className="w-4 h-4" />
-              <span>{AGENCY_INFO.phone}</span>
+              <MessageCircle className="w-4 h-4" />
+              <span>COTIZA POR WHATSAPP</span>
             </a>
           </div>
 
@@ -132,7 +133,7 @@ export default function Header({
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-[var(--text-primary)]"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 text-[var(--brand-sage)]" />}
             </button>
           </div>
         </div>
@@ -140,6 +141,16 @@ export default function Header({
         {/* Mobile Dropdown */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-[var(--border-color)] animate-fade-in flex flex-col gap-3">
+            <a
+              href={whatsappQuoteUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-center gap-2 p-3.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-extrabold text-xs shadow-md"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>COTIZA TU TRADUCCIÓN POR WHATSAPP</span>
+            </a>
+
             <div className="relative w-full">
               <Search className="w-4 h-4 absolute left-3.5 top-3 text-[var(--text-muted)]" />
               <input

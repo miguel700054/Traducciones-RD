@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Globe, PhoneCall, MapPin, Scale, ShieldCheck, Zap, Clock } from 'lucide-react';
+import { Award, Globe, MapPin, Scale, Zap, Clock, MessageCircle } from 'lucide-react';
 import { AGENCY_INFO } from '../data/blogData';
 
 const InstagramIcon = (props) => (
@@ -11,8 +11,10 @@ const InstagramIcon = (props) => (
 );
 
 export default function Hero() {
+  const whatsappQuoteUrl = `https://wa.me/1${AGENCY_INFO.phoneClean}?text=${encodeURIComponent('Hola, Quisiera cotizar una traducción con Traducciones RD')}`;
+
   return (
-    <section className="relative overflow-hidden py-12 lg:py-16 bg-gradient-to-b from-[var(--bg-primary)] via-[var(--bg-secondary)] to-[var(--bg-primary)]">
+    <section className="relative overflow-hidden py-10 lg:py-14 bg-gradient-to-b from-[var(--bg-primary)] via-[var(--bg-secondary)] to-[var(--bg-primary)]">
       
       <div className="container max-w-5xl mx-auto relative z-10">
         
@@ -28,7 +30,7 @@ export default function Hero() {
             El Blog de <span className="italic text-[var(--brand-sage)]">Traducciones RD</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-[var(--text-secondary)] font-normal leading-relaxed max-w-xl mx-auto">
+          <p className="text-base sm:text-lg text-[var(--text-secondary)] font-normal leading-relaxed max-w-2xl mx-auto">
             Traducciones en <strong>todos los idiomas</strong>. Traducciones certificadas para <strong>República Dominicana y el mundo</strong>. Entregamos en <strong>menos de 24 horas</strong> y realizamos <strong>traducciones urgentes</strong>.
           </p>
 
@@ -47,25 +49,26 @@ export default function Hero() {
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+          {/* Prominent High-Visibility WhatsApp CTA Button */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-3">
+            <a 
+              href={whatsappQuoteUrl} 
+              target="_blank" 
+              rel="noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 py-4 px-8 rounded-full bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white font-extrabold text-sm sm:text-base shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border border-emerald-400/40 ring-4 ring-emerald-500/20"
+            >
+              <MessageCircle className="w-6 h-6 text-white animate-bounce" />
+              <span className="tracking-wide">COTIZA TU TRADUCCIÓN POR WHATSAPP</span>
+            </a>
+
             <a 
               href={AGENCY_INFO.instagramUrl} 
               target="_blank" 
               rel="noreferrer"
-              className="btn-primary py-3 px-6 text-xs bg-gradient-to-r from-purple-600 to-pink-600 border-none shadow-md hover:opacity-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] font-bold text-xs hover:bg-[var(--bg-secondary)] transition-colors shadow-sm"
             >
-              <InstagramIcon className="w-4 h-4" />
+              <InstagramIcon className="w-4 h-4 text-pink-600" />
               <span>Instagram @{AGENCY_INFO.instagram}</span>
-            </a>
-
-            <a 
-              href={`https://wa.me/1${AGENCY_INFO.phoneClean}`} 
-              target="_blank" 
-              rel="noreferrer"
-              className="btn-secondary py-3 px-6 text-xs"
-            >
-              <PhoneCall className="w-3.5 h-3.5 text-[var(--brand-sage)]" />
-              <span>WhatsApp {AGENCY_INFO.phone}</span>
             </a>
           </div>
 
