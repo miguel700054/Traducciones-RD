@@ -6,7 +6,6 @@ import {
   Bookmark, 
   Menu, 
   X,
-  Compass,
   MessageCircle
 } from 'lucide-react';
 import { AGENCY_INFO } from '../data/blogData';
@@ -35,11 +34,13 @@ export default function Header({
       <div className="container">
         <div className="flex items-center justify-between h-20 px-2">
           
-          {/* Brand Logo */}
+          {/* Brand Logo with New Sphere Icon */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full bg-[var(--brand-sage)] text-white flex items-center justify-center shadow-md transition-transform group-hover:scale-105">
-              <Compass className="w-5 h-5 text-[var(--brand-sand-light)]" />
-            </div>
+            <img 
+              src="/favicon.png" 
+              alt="Traducciones RD Logo" 
+              className="w-10 h-10 rounded-full object-cover shadow-md transition-transform group-hover:scale-105 border border-black/10"
+            />
             <div>
               <span className="font-serif text-xl font-bold tracking-tight block text-[var(--text-primary)]">
                 Traducciones <span className="text-[var(--brand-sage)]">RD</span>
