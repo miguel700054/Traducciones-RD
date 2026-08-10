@@ -26,8 +26,8 @@ export default function Hero() {
             <span>Lcda. {AGENCY_INFO.founder} · {AGENCY_INFO.experience}</span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[var(--text-primary)] leading-tight">
-            El Blog de <span className="italic text-[var(--brand-sage)]">Traducciones RD</span>
+          <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl tracking-tight text-[var(--text-primary)] leading-tight font-bold">
+            Traducciones <span className="italic text-[var(--brand-sage)] font-normal">RD</span>
           </h1>
 
           <p className="text-base sm:text-lg text-[var(--text-secondary)] font-normal leading-relaxed max-w-2xl mx-auto">
