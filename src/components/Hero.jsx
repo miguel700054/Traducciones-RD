@@ -29,7 +29,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-base sm:text-lg text-[var(--text-secondary)] font-normal leading-relaxed max-w-xl mx-auto">
-            Traducciones en <strong>todos los idiomas</strong>. Entregamos en <strong>menos de 24 horas</strong> y realizamos <strong>traducciones urgentes</strong>.
+            Traducciones en <strong>todos los idiomas</strong>. Traducciones certificadas para <strong>República Dominicana y el mundo</strong>. Entregamos en <strong>menos de 24 horas</strong> y realizamos <strong>traducciones urgentes</strong>.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-2 text-xs font-medium text-[var(--text-secondary)] pt-1">
